@@ -25,5 +25,21 @@
         {
             saldo = saldo + valor;
         }
+
+        public bool Transferir(double valor, ContaCorrente destino)
+        {
+            if(saldo < valor)
+            {
+                return false;
+            } else if(valor < 0)
+            {
+                return false;
+            } else
+            {
+                saldo = saldo - valor;
+                destino.saldo = destino.saldo + valor;
+                return true;
+            }
+        }
     }
 }
